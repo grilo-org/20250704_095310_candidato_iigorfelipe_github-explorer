@@ -1,7 +1,7 @@
 import { useContext } from 'react';
 import { Box, IconButton, TextField, Typography, useTheme } from '@mui/material';
 import { Close } from '@mui/icons-material';
-import { GithubContext } from '../../contexts/githubProvider';
+import { useGithub } from '../../contexts/github';
 import { AppThemeContext } from '../../contexts/themeProvider';
 
 import { sx } from './styles';
@@ -15,7 +15,7 @@ const RepositoryFilters = () => {
     handleClearFilter,
     searchRepo,
     handleSearchInput,
-  } = useContext(GithubContext);
+  } = useGithub();
 
   const theme = useTheme();
   const styles = sx(theme, mdDown);

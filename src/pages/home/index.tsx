@@ -1,14 +1,12 @@
-import { useContext } from 'react';
 import { Box, Link, Typography } from '@mui/material';
-import { GithubContext } from '../../contexts/githubProvider';
+import { useGithub } from '../../contexts/github';
 import UserPage from '../UserPage';
 
 import { sx } from './styles';
 
 const Home = () => {
 
-  const { userInfos } = useContext(GithubContext);
-  
+  const { userInfos } = useGithub();
 
   return !userInfos.user.login ? (
     <Box sx={sx.wrapper}>

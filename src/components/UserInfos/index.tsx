@@ -6,13 +6,13 @@ import {
   Typography,
   useTheme,
 } from '@mui/material';
-import { GithubContext } from '../../contexts/githubProvider';
+import { useGithub } from '../../contexts/github';
 import { AppThemeContext } from '../../contexts/themeProvider';
 
 import { sx } from './styles';
 
 const UserInfos = () => {
-  const { userInfos: { user } } = useContext(GithubContext);
+  const { userInfos: { user } } = useGithub();
   const { oppositeTheme, smDown, mdDown } = useContext(AppThemeContext);
 
   const theme = useTheme();

@@ -1,4 +1,4 @@
-import { useContext, useState } from 'react';
+import { useContext } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { Box } from '@mui/material';
 import Radio from '@mui/material/Radio';
@@ -8,13 +8,13 @@ import FormControl from '@mui/material/FormControl';
 import { Display } from '../../types/display';
 import BasicPopover from '../Popover';
 import { AppThemeContext } from '../../contexts/themeProvider';
-import { GithubContext } from '../../contexts/githubProvider';
+import { useGithub } from '../../contexts/github';
 
 import { sx } from './styles';
 
 
 const CheckboxFilters = () => {
-  const { types, setTypes, sorts, setSorts, languages, setLanguages } = useContext(GithubContext);
+  const { types, setTypes, sorts, setSorts, languages, setLanguages } = useGithub();
   
   const { mdDown } = useContext(AppThemeContext)
   const [searchParams, setSearchParams] = useSearchParams();

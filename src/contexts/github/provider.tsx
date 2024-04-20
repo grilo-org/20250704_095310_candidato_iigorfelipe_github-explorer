@@ -1,61 +1,9 @@
-import { createContext, useEffect } from 'react';
+import { useEffect } from 'react';
 import { ReactNode, useState } from 'react';
-import { GithubContextType, OptionType, UserInfos } from '../types/githubContext';
-import { initialLanguages, initialSorts, initialTypes } from '../helpers/initialValues';
-import { GitHubRepositoryType } from '../types/api';
 import { useSearchParams } from 'react-router-dom';
-
-const feedbackMock = {
-  show: false,
-  repo: '',
-  results: 0,
-  type: '',
-  language: '',
-  sort: ''
-}
-
-type FilterFeedbackType = {
-  show: boolean;
-  repo: string;
-  results: number;
-  type: string;
-  language: string;
-  sort: string;
-}
-
-export const githubDefaultValues = {
-  userInfos: {
-    user: {},
-    repos: [],
-    stars: [],
-  },
-  setUserInfos: () => {},
-
-  reposFiltered: [],
-  setReposFiltered: () => {},
-
-  handleSearchInput: () => {},
-
-  searchRepo: '',
-  setSearchRepo: () => {},
-
-  types: initialTypes,
-  setTypes: () => {},
-
-  sorts: initialSorts,
-  setSorts: () => {},
-
-  languages: initialLanguages,
-  setLanguages: () => {},
-
-  filterFeedback: feedbackMock,
-  setFilterFeedback: () => {},
-
-  handleClearFilter: () => {}
-};
-
-export const GithubContext =
-  createContext<GithubContextType>(githubDefaultValues);
+import { FilterFeedbackType, OptionType, SelectedOptionType, UserInfos } from '../../types/githubContext';
+import { GitHubRepositoryType } from '../../types/api';
+import { defaultValues, GithubContext } from './context';
 
 type Props = {
   children: ReactNode;
@@ -63,24 +11,31 @@ type Props = {
 
 const GithubProvider = ({ children }: Props) => {
   const [_searchParams, setSearchParams] = useSearchParams();
-  const [userInfos, setUserInfos] = useState<UserInfos>(
-    githubDefaultValues.userInfos
-  );
-  const [reposFiltered, setReposFiltered] = useState<GitHubRepositoryType[]>([]);
-  const [searchRepo, setSearchRepo] = useState('');
-  const [types, setTypes] = useState<OptionType[]>(initialTypes);
-  const [sorts, setSorts] = useState<OptionType[]>(initialSorts);
-  const [languages, setLanguages] = useState<OptionType[]>(initialLanguages);
-  const [filterFeedback, setFilterFeedback] = useState<FilterFeedbackType>(feedbackMock);
+  const [userInfos, setUserInfos] = useState<UserInfos>(defaultValues.userInfos);
+  const [reposFiltered, setReposFiltered] = useState<GitHubRepositoryType[]>(defaultValues.reposFiltered);
+  const [searchRepo, setSearchRepo] = useState(defaultValues.searchRepo);
+  const [types, setTypes] = useState<OptionType[]>(defaultValues.types);
+  const [sorts, setSorts] = useState<OptionType[]>(defaultValues.sorts);
+  const [languages, setLanguages] = useState<OptionType[]>(defaultValues.languages);
+  const [filterFeedback, setFilterFeedback] = useState<FilterFeedbackType>(defaultValues.filterFeedback);
+  const [selectedOption, setSelectedOption] = useState<SelectedOptionType>(defaultValues.selectedOption);
 
   const handleClearFilter = () => {
 
+    const resetLanguages = languages.map((lang) => {
+      return {
+        check: lang.option === 'Todos os idiomas',
+        option: lang.option,
+        title: 'Linguagem'
+      }
+    });
+  
     setSearchRepo('');
-    setTypes(initialTypes);
-    setSorts(initialSorts);
-    setLanguages(initialLanguages);
-    setReposFiltered(userInfos.repos);
-    setFilterFeedback(feedbackMock);
+    setTypes(defaultValues.types);
+    setSorts(defaultValues.sorts);
+    setLanguages(resetLanguages);
+    setReposFiltered(defaultValues.reposFiltered);
+    setFilterFeedback(defaultValues.filterFeedback);
 
     setSearchParams((prevState) => {
       const newState = new URLSearchParams(prevState);
@@ -169,14 +124,39 @@ const GithubProvider = ({ children }: Props) => {
       return newState;
     });
   };
-  
+ 
   useEffect(() => {
     updateFilterFeedback();
   }, [searchRepo, types, languages, sorts]);
 
+  const updateLanguageList = (repositories: GitHubRepositoryType[]) => {
+
+    const userLanguages = repositories.map(({ language }) => {
+      return {
+        option: language,
+        check: false,
+        title: 'Linguagem'
+      };
+    });
+
+    const uniqueLanguagesSet = new Set([...userLanguages.map((lang) => lang.option)]);
+
+    const uniqueLanguages = [...uniqueLanguagesSet].map(option => ({
+        option,
+        check: false,
+        title: 'Linguagem'
+    }));
+
+    setLanguages([...defaultValues.languages, ...uniqueLanguages]);
+  };
+
   useEffect(() => {
     const repositories = userInfos?.repos || [];
+
+    handleClearFilter();
     setReposFiltered(repositories);
+    updateLanguageList(repositories);
+
   }, [userInfos?.user?.login]);
 
   const values = {
@@ -187,6 +167,7 @@ const GithubProvider = ({ children }: Props) => {
     sorts, setSorts,
     languages, setLanguages,
     filterFeedback, setFilterFeedback,
+    selectedOption, setSelectedOption,
     handleClearFilter,
     handleSearchInput,
   };

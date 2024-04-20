@@ -1,5 +1,3 @@
-// type !== 'Todos'
-// language !== 'Todos os idiomas'
 export const initialTypes = [
   {
     option: 'Todos',
@@ -7,35 +5,15 @@ export const initialTypes = [
     title: 'Tipo'
   },
   {
-    option: 'Público',
-    check: false,
-    title: 'Tipo'
-  },
-  /*{
-    option: 'Privado',
+    option: 'Forks',
     check: false,
     title: 'Tipo'
   },
   {
-    option: 'Fontes',
-    check: false,
-    title: 'Tipo'
-  },*/
-  {
-    option: 'Bifurcações',
+    option: 'Arquivados',
     check: false,
     title: 'Tipo'
   },
-  {
-    option: 'Arquivado',
-    check: false,
-    title: 'Tipo'
-  },
-  /*{
-    option: 'Espelhos',
-    check: false,
-    title: 'Tipo'
-  },*/
   {
     option: 'Modelos',
     check: false,
@@ -68,3 +46,12 @@ export const initialSorts = [
     title: 'Ordem'
   }
 ];
+
+export const initialFeedback = {
+  show: false,
+  repo: '',
+  results: 0,
+  type: '',
+  language: '',
+  sort: ''
+};

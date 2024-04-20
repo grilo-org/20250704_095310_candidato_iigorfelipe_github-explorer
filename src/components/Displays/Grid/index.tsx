@@ -2,7 +2,7 @@ import { useContext } from 'react';
 import { Box, List, ListItem, Typography, useTheme } from '@mui/material';
 import languages from '../../../helpers/languageColors.json';
 import { AppThemeContext } from '../../../contexts/themeProvider';
-import { GithubContext } from '../../../contexts/githubProvider';
+import { useGithub } from '../../../contexts/github';
 
 import { sx } from './styles';
 
@@ -10,7 +10,7 @@ const languageColors: Record<string, string> = languages;
 
 const DisplayGrid = () => {
   const { oppositeTheme } = useContext(AppThemeContext);
-  const { reposFiltered, userInfos: { user } } = useContext(GithubContext);
+  const { reposFiltered, userInfos: { user } } = useGithub();
 
   const theme = useTheme();
   const styles = sx(theme);

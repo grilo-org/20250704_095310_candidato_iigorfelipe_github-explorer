@@ -14,7 +14,8 @@ import {
 import Brightness4OutlinedIcon from '@mui/icons-material/Brightness4Outlined';
 import { Search } from '@mui/icons-material';
 import { AppThemeContext } from '../../contexts/themeProvider';
-import { GithubContext, githubDefaultValues } from '../../contexts/githubProvider';
+import { defaultValues } from '../../contexts/github/context';
+import { useGithub } from '../../contexts/github';
 import GitHubAPI from '../../api';
 import { REPOS_MOCK, USER_MOCK } from '../../mocks';
 
@@ -24,7 +25,7 @@ const Header = () => {
   const [load, setLoad] = useState(false)
   const [searchParams, setSearchParams] = useSearchParams();
   const { oppositeTheme, toggleTheme } = useContext(AppThemeContext);
-  const { setUserInfos } = useContext(GithubContext);
+  const { setUserInfos } = useGithub();
   const { register, handleSubmit, setValue } = useForm();
   const [feedback, setFeedback] = useState({
     message: '',
@@ -72,23 +73,23 @@ const Header = () => {
     };
   };
 
-  // const fetchUserMock = async (username: string) => {
-  //   setLoad(true)
-  //   USER_MOCK.login = username
+  const fetchUserMock = async (username: string) => {
+    setLoad(true)
+    USER_MOCK.login = username
 
-  //   setUserInfos({
-  //     user: USER_MOCK,
-  //     repos: REPOS_MOCK,
-  //     stars: REPOS_MOCK,
-  //   });
+    setUserInfos({
+      user: USER_MOCK,
+      repos: REPOS_MOCK,
+      stars: REPOS_MOCK,
+    });
 
-  //   setSearchParams((prevState) => {
-  //     const newState = new URLSearchParams(prevState);
-  //     newState.set('user', USER_MOCK.login);
-  //     return newState;
-  //   });
-  //   setLoad(false)
-  // };
+    setSearchParams((prevState) => {
+      const newState = new URLSearchParams(prevState);
+      newState.set('user', USER_MOCK.login);
+      return newState;
+    });
+    setLoad(false)
+  };
 
   const onSubmit = async (data: { username: string }) => {
 
@@ -100,22 +101,22 @@ const Header = () => {
 
     } else {
       clearFeedback();
-      fetchUser(data.username);
-      // fetchUserMock(data.username);
+      // fetchUser(data.username);
+      fetchUserMock(data.username);
     };
   };
 
   useEffect(() => {
     if (defaultValue.length >= 1) {
-      fetchUser(defaultValue);  
-      // fetchUserMock(defaultValue);
+      // fetchUser(defaultValue);  
+      fetchUserMock(defaultValue);
     };
   }, []);
 
   const backToHomePage = () => {
     setValue('username', '');
     clearFeedback();
-    setUserInfos(githubDefaultValues.userInfos);
+    setUserInfos(defaultValues.userInfos);
     navigate('/');
   };
 
