@@ -7,7 +7,7 @@ import FormControlLabel from '@mui/material/FormControlLabel';
 import FormControl from '@mui/material/FormControl';
 import { Display } from '../../types/display';
 import BasicPopover from '../Popover';
-import { AppThemeContext } from '../../contexts/themeProvider';
+import { useAppTheme } from '../../contexts/theme';
 import { useGithub } from '../../contexts/github';
 
 import { sx } from './styles';
@@ -16,7 +16,7 @@ import { sx } from './styles';
 const CheckboxFilters = () => {
   const { types, setTypes, sorts, setSorts, languages, setLanguages } = useGithub();
   
-  const { mdDown } = useContext(AppThemeContext)
+  const { mdDown } = useAppTheme();
   const [searchParams, setSearchParams] = useSearchParams();
   const display = searchParams.get('display') || 'grid';
 

@@ -1,7 +1,6 @@
-import { useContext } from 'react';
 import { Box, Typography, useTheme } from '@mui/material';
 import Carousel from 'react-material-ui-carousel'
-import { AppThemeContext } from '../../../contexts/themeProvider';
+import { useAppTheme } from '../../../contexts/theme';
 import { useGithub } from '../../../contexts/github';
 import getDayAndMouth from '../../../helpers/convertDate';
 import languages from '../../../helpers/languageColors.json';
@@ -11,7 +10,7 @@ import { sx } from './styles';
 const languageColors: Record<string, string> = languages;
 
 const CarouselDisplay = () => {
-  const { oppositeTheme, smDown, mdDown } = useContext(AppThemeContext);
+  const { oppositeTheme, smDown, mdDown } = useAppTheme();
   const { reposFiltered, userInfos: { user } } = useGithub();
 
   const theme = useTheme();

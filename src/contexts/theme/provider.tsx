@@ -1,28 +1,14 @@
-import { createContext, useEffect } from 'react';
+import { ReactNode, useEffect } from "react";
+import { CssBaseline, ThemeProvider, useMediaQuery, useTheme } from "@mui/material";
+import usePersistedState from "../../hooks/usePersistedState";
+import { DarkTheme, LightTheme } from "../../themes";
+import { AppThemeContext, Theme } from "./context";
 
-import { ThemeProvider, useMediaQuery, useTheme } from '@mui/material';
-import CssBaseline from '@mui/material/CssBaseline';
-
-import { DarkTheme, LightTheme } from './../themes';
-import usePersistedState from '../hooks/usePersistedState';
-
-type Theme = 'light' | 'dark';
-
-type AppThemeContext = {
-  theme: Theme;
-  oppositeTheme: Theme;
-  toggleTheme: () => void;
-  smDown: boolean;
-  mdDown: boolean;
+type Props = {
+  children: ReactNode;
 };
 
-type ThemeProviderType = {
-  children: React.ReactNode;
-};
-
-export const AppThemeContext = createContext({} as AppThemeContext);
-
-const AppThemeProvider = ({ children }: ThemeProviderType) => {
+const AppThemeProvider = ({ children }: Props) => {
   const [theme, setTheme] = usePersistedState<Theme>('theme', 'light');
 
   const { breakpoints } = useTheme();
@@ -33,7 +19,6 @@ const AppThemeProvider = ({ children }: ThemeProviderType) => {
   const oppositeTheme = theme === 'light' ? 'dark' : 'light';
   const selectedTheme = theme === 'light' ? LightTheme : DarkTheme;
   
-
 
   const toggleTheme = () => setTheme(oppositeTheme);
 

@@ -1,4 +1,3 @@
-import { useContext } from 'react';
 import {
   Box,
   Button,
@@ -7,13 +6,13 @@ import {
   useTheme,
 } from '@mui/material';
 import { useGithub } from '../../contexts/github';
-import { AppThemeContext } from '../../contexts/themeProvider';
+import { useAppTheme } from '../../contexts/theme';
 
 import { sx } from './styles';
 
 const UserInfos = () => {
   const { userInfos: { user } } = useGithub();
-  const { oppositeTheme, smDown, mdDown } = useContext(AppThemeContext);
+  const { oppositeTheme, smDown, mdDown } = useAppTheme();
 
   const theme = useTheme();
   const styles = sx(theme, smDown, mdDown);

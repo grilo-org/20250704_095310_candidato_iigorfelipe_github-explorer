@@ -1,5 +1,5 @@
 import { AppRoutes } from './routes';
-import AppThemeProvider from './contexts/themeProvider';
+import AppThemeProvider from './contexts/theme/provider';
 import GithubProvider from './contexts/github/provider';
 import Header from './components/Header';
 

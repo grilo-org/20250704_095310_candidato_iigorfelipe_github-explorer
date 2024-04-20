@@ -2,7 +2,7 @@ import { createContext } from "react";
 import { initialFeedback, initialLanguages, initialSorts, initialTypes } from "../../helpers/initialValues";
 import { GithubContextType } from "../../types/githubContext";
 
-export const defaultValues = {
+export const defaultValues: GithubContextType = {
   userInfos: {
     user: {},
     repos: [],

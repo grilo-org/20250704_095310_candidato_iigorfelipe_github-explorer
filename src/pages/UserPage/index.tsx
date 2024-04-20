@@ -1,13 +1,12 @@
-import { useContext } from 'react';
 import { Box } from '@mui/material';
 import UserInfos from '../../components/UserInfos';
 import UserRepos from '../../components/UserRepos';
-import { AppThemeContext } from '../../contexts/themeProvider';
+import { useAppTheme } from '../../contexts/theme';
 
 import { sx } from './styles';
 
 const UserPage = () => {
-  const { mdDown } = useContext(AppThemeContext);
+  const { mdDown } = useAppTheme();
   const styles = sx(mdDown);
   
   return (

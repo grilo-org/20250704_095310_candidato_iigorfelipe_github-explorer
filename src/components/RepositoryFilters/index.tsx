@@ -1,14 +1,13 @@
-import { useContext } from 'react';
 import { Box, IconButton, TextField, Typography, useTheme } from '@mui/material';
 import { Close } from '@mui/icons-material';
 import { useGithub } from '../../contexts/github';
-import { AppThemeContext } from '../../contexts/themeProvider';
+import { useAppTheme } from '../../contexts/theme';
 
 import { sx } from './styles';
 
 const RepositoryFilters = () => {
 
-  const { oppositeTheme, mdDown } = useContext(AppThemeContext)
+  const { oppositeTheme, mdDown } = useAppTheme();
   const {
     userInfos: { repos, stars },
     filterFeedback,

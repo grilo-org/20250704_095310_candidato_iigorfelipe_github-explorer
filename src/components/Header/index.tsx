@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useNavigate, useSearchParams } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import {
@@ -13,7 +13,7 @@ import {
 } from '@mui/material';
 import Brightness4OutlinedIcon from '@mui/icons-material/Brightness4Outlined';
 import { Search } from '@mui/icons-material';
-import { AppThemeContext } from '../../contexts/themeProvider';
+import { useAppTheme } from '../../contexts/theme';
 import { defaultValues } from '../../contexts/github/context';
 import { useGithub } from '../../contexts/github';
 import GitHubAPI from '../../api';
@@ -24,7 +24,7 @@ import { sx } from './styles';
 const Header = () => {
   const [load, setLoad] = useState(false)
   const [searchParams, setSearchParams] = useSearchParams();
-  const { oppositeTheme, toggleTheme } = useContext(AppThemeContext);
+  const { oppositeTheme, toggleTheme } = useAppTheme();
   const { setUserInfos } = useGithub();
   const { register, handleSubmit, setValue } = useForm();
   const [feedback, setFeedback] = useState({
