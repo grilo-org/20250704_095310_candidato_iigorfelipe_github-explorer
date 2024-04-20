@@ -1,56 +1,70 @@
+// type !== 'Todos'
+// language !== 'Todos os idiomas'
 export const initialTypes = [
   {
     option: 'Todos',
-    check: true
+    check: true,
+    title: 'Tipo'
   },
   {
     option: 'Público',
-    check: false
+    check: false,
+    title: 'Tipo'
   },
   /*{
     option: 'Privado',
-    check: false
+    check: false,
+    title: 'Tipo'
   },
   {
     option: 'Fontes',
-    check: false
+    check: false,
+    title: 'Tipo'
   },*/
   {
     option: 'Bifurcações',
-    check: false
+    check: false,
+    title: 'Tipo'
   },
   {
     option: 'Arquivado',
-    check: false
+    check: false,
+    title: 'Tipo'
   },
   /*{
     option: 'Espelhos',
-    check: false
+    check: false,
+    title: 'Tipo'
   },*/
   {
     option: 'Modelos',
-    check: false
+    check: false,
+    title: 'Tipo'
   },
 ];
 
 export const initialLanguages = [
   {
     option: 'Todos os idiomas',
-    check: true
+    check: true,
+    title: 'Linguagem'
   }
 ];
 
-export const initialOrders = [
+export const initialSorts = [
   {
     option: 'Última atualização',
-    check: true
+    check: true,
+    title: 'Ordem'
   },
   {
     option: 'Nome',
-    check: false
+    check: false,
+    title: 'Ordem'
   },
   {
     option: 'Estrelas',
-    check: false
+    check: false,
+    title: 'Ordem'
   }
 ];

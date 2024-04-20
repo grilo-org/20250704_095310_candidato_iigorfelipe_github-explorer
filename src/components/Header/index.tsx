@@ -114,6 +114,7 @@ const Header = () => {
 
   const backToHomePage = () => {
     setValue('username', '');
+    clearFeedback();
     setUserInfos(githubDefaultValues.userInfos);
     navigate('/');
   };

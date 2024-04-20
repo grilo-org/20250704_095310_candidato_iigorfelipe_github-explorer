@@ -1,4 +1,4 @@
-import { useContext, useState } from 'react';
+import { useContext } from 'react';
 import { Box, IconButton, TextField, Typography, useTheme } from '@mui/material';
 import { Close } from '@mui/icons-material';
 import { GithubContext } from '../../contexts/githubProvider';
@@ -6,31 +6,62 @@ import { AppThemeContext } from '../../contexts/themeProvider';
 
 import { sx } from './styles';
 
-const feedbackMock = {
-  show: true,
-  results: 17,
-  type: 'público',
-  language: 'TypeScript',
-  sort: 'ultima atualização'
-}
-
 const RepositoryFilters = () => {
-  const [searchRepo, setSearchRepo] = useState('');
-  const [filterFeedback, setFilterFeedback] = useState(feedbackMock);
 
   const { oppositeTheme, mdDown } = useContext(AppThemeContext)
-  const { userInfos: { repos, stars } } = useContext(GithubContext);
+  const {
+    userInfos: { repos, stars },
+    filterFeedback,
+    handleClearFilter,
+    searchRepo,
+    handleSearchInput,
+  } = useContext(GithubContext);
 
   const theme = useTheme();
   const styles = sx(theme, mdDown);
 
-
-  const handleFeedbackFilter = () => {
-    setFilterFeedback({
-      ...filterFeedback,
-      show: !filterFeedback.show
-    });
+  const renderRepo = () => {
+    if (searchRepo) {
+      return (
+        <>
+          {' '}que correspondem a <Typography sx={styles.feedbackHighlight}>{filterFeedback.repo}</Typography>
+        </>
+      );
+    }
+    return null;
   };
+
+  const renderType = () => {
+    if (filterFeedback.type) {
+      return (
+        <>
+          {searchRepo ? ' ' : ''}<Typography sx={styles.feedbackHighlight}>{filterFeedback.type}</Typography>
+        </>
+      );
+    }
+    return null;
+  };
+
+  const renderLanguage = () => {
+    if (filterFeedback.language) {
+      return (
+        <>
+          {' '}escritos em <Typography sx={styles.feedbackHighlight}>{filterFeedback.language}</Typography>
+        </>
+      );
+    }
+    return null;
+  };
+
+  const renderSort = () => {
+    if (filterFeedback.sort) {
+      return (
+        <>
+        {' '}classificados por <Typography sx={styles.feedbackHighlight}>{filterFeedback.sort}</Typography>
+        </>
+      )
+    }
+  }
 
   return (
     <Box sx={styles.wrapper}>
@@ -64,9 +95,8 @@ const RepositoryFilters = () => {
           sx={styles.filterInput}
           placeholder="Encontre um repositório..."
           value={searchRepo}
-          onChange={({ target: { value } }) => setSearchRepo(value)}
+          onChange={({ target: { value } }) => handleSearchInput(value)}
         />
-
 
       </Box>
       
@@ -75,12 +105,14 @@ const RepositoryFilters = () => {
           <Box sx={styles.filterFeedbackBox}>
 
             <Box sx={styles.filterFeedback}>
-              <Typography sx={styles.feedbackHighlight}>{filterFeedback.results}</Typography>resultados para repositórios
-              <Typography sx={styles.feedbackHighlight}>{filterFeedback.type}</Typography> ordenados por
-              <Typography sx={styles.feedbackHighlight}>{filterFeedback.sort}</Typography>
+              <Typography sx={styles.feedbackHighlight}>{filterFeedback.results}</Typography> resultados para repositórios
+              {renderType()}
+              {renderRepo()}
+              {renderLanguage()}
+              {renderSort()}
             </Box>
 
-            <IconButton sx={styles.clearFilterBtn} onClick={handleFeedbackFilter}>
+            <IconButton sx={styles.clearFilterBtn} onClick={handleClearFilter}>
               <Close sx={styles.clearFilterIcon} />
               <Typography>Limpar filtro</Typography>
             </IconButton>
@@ -88,7 +120,6 @@ const RepositoryFilters = () => {
           </Box>
         )
       }
-      
 
     </Box>
   );

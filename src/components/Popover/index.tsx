@@ -3,23 +3,34 @@ import Popover from '@mui/material/Popover';
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 import { Box, Button, Typography } from '@mui/material';
 import { Check, Close } from '@mui/icons-material';
+import { OptionType } from '../../types/githubContext';
 
 import { sx }from './styles';
-
-type Option = {
-  option: string;
-  check: boolean;
-};
 
 type PropsPopover = {
   title: 'Tipo' | 'Linguagem' | 'Ordem';
   label: string;
-  options: Option[];
-  setOptions: Dispatch<SetStateAction<{ option: string; check: boolean; }[]>>;
+  options: OptionType[];
+  setOptions: Dispatch<SetStateAction<OptionType[]>>;
 };
 
 const BasicPopover= ({  title, label, options, setOptions }: PropsPopover) => {
   const [anchorEl, setAnchorEl] = useState<HTMLButtonElement | null>(null);
+
+  const handleSelectedOption = (selectedOption: string) => {
+
+    setOptions((prevOptions) => {
+      return prevOptions.map((option) => {
+
+        if (option.option === selectedOption) {
+          return { ...option, check: true };
+        }
+
+        return { ...option, check: false };
+      });
+    });
+  };
+  
 
   const handleClick = (event: MouseEvent<HTMLButtonElement>) => {
     setAnchorEl(event.currentTarget);
@@ -77,7 +88,8 @@ const BasicPopover= ({  title, label, options, setOptions }: PropsPopover) => {
               <Box
                 component='label'
                 sx={sx.optionContent}
-                key={option}  
+                key={option}
+                onClick={() => handleSelectedOption(option)}
               >
                 <Box sx={sx.checkContent}>
                   {check && <Check sx={sx.checkIcon} />}
