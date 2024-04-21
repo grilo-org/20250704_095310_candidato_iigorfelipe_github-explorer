@@ -10,7 +10,8 @@ const RepositoryFilters = () => {
   const { oppositeTheme, mdDown } = useAppTheme();
   const {
     userInfos: { repos, stars },
-    filterFeedback,
+    filters,
+    reposFiltered,
     handleClearFilter,
     searchRepo,
     handleSearchInput,
@@ -23,7 +24,7 @@ const RepositoryFilters = () => {
     if (searchRepo) {
       return (
         <>
-          {' '}que correspondem a <Typography sx={styles.feedbackHighlight}>{filterFeedback.repo}</Typography>
+          {' '}que correspondem a <Typography sx={styles.feedbackHighlight}>{filters.repo}</Typography>
         </>
       );
     }
@@ -31,10 +32,10 @@ const RepositoryFilters = () => {
   };
 
   const renderType = () => {
-    if (filterFeedback.type) {
+    if (filters.type[1].trim().length > 0) {
       return (
         <>
-          {searchRepo ? ' ' : ''}<Typography sx={styles.feedbackHighlight}>{filterFeedback.type}</Typography>
+          {searchRepo ? ' ' : ''}<Typography sx={styles.feedbackHighlight}>{filters.type[1]}</Typography>
         </>
       );
     }
@@ -42,10 +43,10 @@ const RepositoryFilters = () => {
   };
 
   const renderLanguage = () => {
-    if (filterFeedback.language) {
+    if (filters.language[1].trim().length > 0) {
       return (
         <>
-          {' '}escritos em <Typography sx={styles.feedbackHighlight}>{filterFeedback.language}</Typography>
+          {' '}escritos em <Typography sx={styles.feedbackHighlight}>{filters.language[1]}</Typography>
         </>
       );
     }
@@ -53,10 +54,10 @@ const RepositoryFilters = () => {
   };
 
   const renderSort = () => {
-    if (filterFeedback.sort) {
+    if (filters.sort[1].trim().length > 0) {
       return (
         <>
-        {' '}classificados por <Typography sx={styles.feedbackHighlight}>{filterFeedback.sort}</Typography>
+        {' '}classificados por <Typography sx={styles.feedbackHighlight}>{filters.sort[1]}</Typography>
         </>
       )
     }
@@ -100,11 +101,11 @@ const RepositoryFilters = () => {
       </Box>
       
       {
-        filterFeedback.show && (
+        filters.show && (
           <Box sx={styles.filterFeedbackBox}>
 
             <Box sx={styles.filterFeedback}>
-              <Typography sx={styles.feedbackHighlight}>{filterFeedback.results}</Typography> resultados para repositórios
+              <Typography sx={styles.feedbackHighlight}>{reposFiltered.length}</Typography> resultados para repositórios
               {renderType()}
               {renderRepo()}
               {renderLanguage()}

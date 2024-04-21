@@ -1,5 +1,5 @@
 import { createContext } from "react";
-import { initialFeedback, initialLanguages, initialSorts, initialTypes } from "../../helpers/initialValues";
+import { initialFilters, initialLanguages, initialSorts, initialTypes } from "../../helpers/initialValues";
 import { GithubContextType } from "../../types/githubContext";
 
 export const defaultValues: GithubContextType = {
@@ -20,10 +20,8 @@ export const defaultValues: GithubContextType = {
   setSorts: () => {},
   languages: initialLanguages,
   setLanguages: () => {},
-  filterFeedback: initialFeedback,
-  setFilterFeedback: () => {},
-  selectedOption: { title:  '', value: '' },
-  setSelectedOption: () => {},
+  filters: initialFilters,
+  setFilters: () => {},
   handleClearFilter: () => {}
 };
 

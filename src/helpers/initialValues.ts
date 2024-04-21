@@ -1,3 +1,5 @@
+import { Filters } from "../types/githubContext";
+
 export const initialTypes = [
   {
     option: 'Todos',
@@ -47,11 +49,10 @@ export const initialSorts = [
   }
 ];
 
-export const initialFeedback = {
+export const initialFilters: Filters = {
   show: false,
   repo: '',
-  results: 0,
-  type: '',
-  language: '',
-  sort: ''
+  type: ['type', '', 'all'],
+  language: ['language', '', 'language'],
+  sort: ['sort', '', 'updated_at']
 };

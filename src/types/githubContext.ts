@@ -12,13 +12,20 @@ export type OptionType = {
   title: string;
 };
 
-export type FilterFeedbackType = {
+export type Types = 'Todos' | 'Forks' | 'Arquivados' | 'Modelos';
+export type Sorts = 'Última atualização' | 'Nome' | 'Estrelas';
+
+export type KeyOption = 'type' | 'language' | 'sort';
+export type TypeKeyFilter = 'all' | 'fork' | 'archived' | 'is_template';
+export type LanguageKeyFilter = string;
+export type SortKeyFilter = 'name' | 'updated_at' | 'stargazers_count';
+
+export type Filters = {
   show: boolean;
   repo: string;
-  results: number;
-  type: string;
-  language: string;
-  sort: string;
+  type: [KeyOption, string, TypeKeyFilter];
+  language: [KeyOption, string, LanguageKeyFilter];
+  sort: [KeyOption, string, SortKeyFilter];
 };
 
 export type GithubContextType = {
@@ -35,7 +42,7 @@ export type GithubContextType = {
   setSorts: React.Dispatch<React.SetStateAction<OptionType[]>>;
   languages: OptionType[];
   setLanguages: React.Dispatch<React.SetStateAction<OptionType[]>>;
-  filterFeedback: FilterFeedbackType
-  setFilterFeedback: React.Dispatch<React.SetStateAction<FilterFeedbackType>>;
-  handleClearFilter: () => void
+  filters: Filters;
+  setFilters: React.Dispatch<React.SetStateAction<Filters>>;
+  handleClearFilter: () => void;
 };

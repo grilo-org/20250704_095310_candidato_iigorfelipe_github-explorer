@@ -36,9 +36,9 @@ const CarouselDisplay = () => {
                 {repo.name}
               </Typography>
 
-              <Typography sx={styles.repositoryVisibility}>{repo.visibility}</Typography>
-
             </Box>
+
+            <Typography sx={styles.repositoryVisibility}>{repo.visibility}</Typography>
 
             {
               repo.description && (
