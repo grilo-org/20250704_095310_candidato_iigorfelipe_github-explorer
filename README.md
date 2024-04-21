@@ -1,15 +1,15 @@
 
-# GitHub Repositories Explorer
+# GitHub Explorer
 
 <div align="center">
   <img src="https://github.com/iigorfelipe/github/assets/87145566/9bc0986c-cb6d-418d-9228-9f23f650955a" />
 </div>
 
-`Captura de tela do GitHub Repositories Explorer exibindo os repositórios do usuário 'ashtom' no modo de visualização em grade. Os repositórios estão filtrados por 'forks' e ordenados por 'última atualização'.`
+`Captura de tela do GitHub Explorer exibindo os repositórios do usuário 'ashtom' no modo de visualização em grade. Os repositórios estão filtrados por 'forks' e ordenados por 'última atualização'.`
 
 ## Visão Geral
 
-O GitHub Repositories Explorer é uma aplicação web que permite aos usuários pesquisar por usuários do GitHub e listar todos os seus repositórios públicos. A busca por usuários e repositórios é realizada através da `API` pública do GitHub. A aplicação oferece várias maneiras de visualizar os repositórios, incluindo lista, grade e carrossel, com cada modo de visualização tendo suas próprias propriedades únicas.
+O GitHub Explorer é uma aplicação web que permite aos usuários pesquisar por usuários do GitHub e listar todos os seus repositórios públicos. A busca por usuários e repositórios é realizada através da `API` pública do GitHub. A aplicação oferece várias maneiras de visualizar os repositórios, incluindo lista, grade e carrossel, com cada modo de visualização tendo suas próprias propriedades únicas.
 
 ## Funcionalidades Principais
 
@@ -42,11 +42,11 @@ O projeto inclui suporte para dois temas: `modo claro` e `modo escuro`. O tema d
 __obs: Cerifique-se de estar com o node na `versão 18` ou superior
 
 ```bash
-git clone git@github.com:iigorfelipe/github.git
+git clone git@github.com:iigorfelipe/github-explorer.git
 ```
 
 ```bash
-cd github
+cd github-explorer
 ```
 
 ```bash
