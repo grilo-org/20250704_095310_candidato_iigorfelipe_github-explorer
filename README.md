@@ -30,7 +30,7 @@ O GitHub Explorer é uma aplicação web que permite aos usuários pesquisar por
 
 ## Temas
 
-O projeto inclui suporte para dois temas: `modo claro` e `modo escuro`. O tema definido por padrão segue as configurações do navegador do usuário. Caso contrário, o modo escuro será aplicado. No momento, o desenvolvimento foi focado principalmente no modo escuro, enquanto o modo claro ainda está em fase de implementação.
+O projeto inclui suporte para dois temas: `modo claro` e `modo escuro`. O tema definido por padrão segue as configurações do navegador do usuário. Caso contrário, o modo escuro será aplicado.
 
 ## Como Executar o Projeto
 
@@ -76,6 +76,10 @@ __obs: mudar "username" pelo nome do usuario que deseja pesquisar
 - [Cores das linguagens - Github](https://gist.github.com/robertpeteuil/bb2dc86f3b3e25d203664d61410bfa30)
 
 - [Carrossel - Docs](https://www.npmjs.com/package/react-material-ui-carousel)
+
+## Observação
+
+Este projeto é uma versão aprimorada do [Github repos](https://github.com/iigorfelipe/github-repos), abordando funcionalidades anteriormente incompletas. A nova versão foi completamente refinada e está totalmente funcional, com filtragens e temas implementados, aguardando apenas ajustes finos no tema claro e a realização do deploy.
 
 ## Autor
 
