@@ -16,7 +16,7 @@ const Home = () => {
         de uma simples pesquisa.
       </Typography>
 
-      <Link sx={sx.projectLink}  href="https://github.com/iigorfelipe/github-repos" target="_blank">
+      <Link sx={sx.projectLink}  href="https://github.com/iigorfelipe/github-explorer" target="_blank">
         Github do projeto
       </Link>
 
