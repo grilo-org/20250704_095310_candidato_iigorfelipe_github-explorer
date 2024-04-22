@@ -79,7 +79,7 @@ __obs: mudar "username" pelo nome do usuario que deseja pesquisar
 
 ## Observação
 
-Este projeto é uma versão aprimorada do [Github repos](https://github.com/iigorfelipe/github-repos), abordando funcionalidades anteriormente incompletas. A nova versão foi completamente refinada e está totalmente funcional, com filtragens e temas implementados, aguardando apenas a realização do deploy.
+Este projeto é uma versão aprimorada do [Github repos](https://github.com/iigorfelipe/github-repos), abordando funcionalidades anteriormente incompletas. A nova versão foi completamente refinada e está totalmente funcional, com filtragens e temas implementados.
 
 ## Autor
 
