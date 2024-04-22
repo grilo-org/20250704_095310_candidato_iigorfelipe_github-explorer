@@ -1,6 +1,8 @@
 
 # GitHub Explorer
 
+- ### [Clique para ver a aplicação rodando](https://iigorfelipe.github.io/github-explorer/)
+
 <div align="center">
   <img src="https://github.com/iigorfelipe/github/assets/87145566/9bc0986c-cb6d-418d-9228-9f23f650955a" />
 </div>
