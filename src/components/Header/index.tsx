@@ -96,7 +96,7 @@ const Header = () => {
     setValue('username', '');
     clearFeedback();
     setUserInfos(defaultValues.userInfos);
-    navigate('/');
+    navigate('/github-explorer/');
   };
 
   return (

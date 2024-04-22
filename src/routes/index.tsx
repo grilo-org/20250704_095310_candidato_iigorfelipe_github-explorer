@@ -5,8 +5,8 @@ export const AppRoutes = () => {
 
   return (
     <Routes>
-      <Route path="/github-explorer" element={<Home />} />
-      <Route path="*" element={<Navigate to="/github-explorer" />} />
+      <Route path="/github-explorer/" element={<Home />} />
+      <Route path="*" element={<Navigate to="/github-explorer/" />} />
     </Routes>
   );
 };
