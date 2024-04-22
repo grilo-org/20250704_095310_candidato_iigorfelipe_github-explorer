@@ -203,22 +203,22 @@ const GithubProvider = ({ children }: Props) => {
     setFilters(filter);
   };
 
-  const updateLanguageList = (repositories: GitHubRepositoryType[]) => {
+  const updateLanguageList = (repos: GitHubRepositoryType[]) => {
 
-    const userLanguages = repositories.map(({ language }) => {
-      return {
+    const userLanguages = repos.filter((repo) => repo.language !== null).map(({ language }) => (
+      {
         option: language,
         check: false,
         title: 'Linguagem'
-      };
-    });
+      }
+    ));
 
     const uniqueLanguagesSet = new Set([...userLanguages.map((lang) => lang.option)]);
 
     const uniqueLanguages = [...uniqueLanguagesSet].map(option => ({
-        option,
-        check: false,
-        title: 'Linguagem'
+      option,
+      check: false,
+      title: 'Linguagem'
     }));
 
     setLanguages([...defaultValues.languages, ...uniqueLanguages]);
