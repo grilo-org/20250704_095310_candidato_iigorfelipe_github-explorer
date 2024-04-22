@@ -1,4 +1,5 @@
 import { Theme } from '@mui/material';
+import { borderColor } from '../../themes';
 
 export const sx = (theme: Theme, mdDown: boolean) => ({
   wrapper: {
@@ -19,8 +20,8 @@ export const sx = (theme: Theme, mdDown: boolean) => ({
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'space-between',
-    borderTop: `1px solid #25282e`,
-    borderBottom: `1px solid #25282e`,
+    borderTop: `1px solid ${borderColor}`,
+    borderBottom: `1px solid ${borderColor}`,
     m: '10px 0px',
     p: '15px 0px'
   },
@@ -42,7 +43,7 @@ export const sx = (theme: Theme, mdDown: boolean) => ({
     borderRadius: '2em',
     height: '38px',
     minWidth: '100px',
-    border: `1px solid #25282e`,
+    border: `1px solid ${borderColor}`,
   },
 
   boxIcons: {
@@ -89,7 +90,7 @@ export const sx = (theme: Theme, mdDown: boolean) => ({
     width: '22px',
     mr: '8px',
     p: '2px',
-    border: `1px solid #25282e`,
+    border: `1px solid ${borderColor}`,
     borderRadius: '8px',
     background: theme.palette.background.default,
     '&:hover': {

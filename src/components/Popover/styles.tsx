@@ -1,10 +1,12 @@
+import { borderColor } from "../../themes";
+
 export const sx = {
   wrapperContent: {
     display: 'flex',
     flexDirection: 'column',
     width: '300px',
     maxHeight: '480px',
-    border: '1px solid #3B3E42',
+    border: `1px solid ${borderColor}`,
     borderRadius: '8px',
   },
 
@@ -37,10 +39,10 @@ export const sx = {
     cursor: 'pointer',
     padding: '0px 10px',
     height: '35px',
-    borderTop: '1px solid #3B3E42',
+    borderTop: `1px solid ${borderColor}`,
     '&:hover': {
-      background: '#3B3E42',
-      borderTop: '1px solid #3B3E42',
+      background: `${borderColor}`,
+      borderTop: `1px solid ${borderColor}`,
     }
   },
 

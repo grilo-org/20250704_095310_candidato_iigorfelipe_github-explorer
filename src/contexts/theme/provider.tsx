@@ -23,7 +23,7 @@ const AppThemeProvider = ({ children }: Props) => {
   const toggleTheme = () => setTheme(oppositeTheme);
 
   useEffect(() => {
-  
+
     const changeTheme = (isDarkTheme: boolean) => {
       if (isDarkTheme) {
         setTheme('dark');

@@ -1,4 +1,5 @@
 import { Theme } from '@mui/material';
+import { borderColor } from '../../../themes';
 
 export const sx = (theme: Theme, languageColor?: string) => ({
   wrapper: {
@@ -8,7 +9,7 @@ export const sx = (theme: Theme, languageColor?: string) => ({
   listItem: {
     p: '24px 0px',
     display: 'flex',
-    borderBottom: '1px solid',
+    borderBottom: `1px solid ${borderColor}`,
   },
 
   listItemContentWrapper: {
@@ -33,7 +34,7 @@ export const sx = (theme: Theme, languageColor?: string) => ({
 
   repositoryVisibility: {
     color: '#8b949e',
-    border: '1px solid #25282e',
+    border: `1px solid ${borderColor}`,
     fontSize: '12px',
     ml: '8px',
     p: '2px 7px',

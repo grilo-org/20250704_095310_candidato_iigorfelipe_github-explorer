@@ -1,4 +1,5 @@
 import { Theme } from '@mui/material';
+import { borderColor } from '../../../themes';
 
 export const sx = (theme: Theme, mdDown?: boolean, smDown?: boolean, languageColor?: string) => ({
   wrapper: {
@@ -47,7 +48,7 @@ export const sx = (theme: Theme, mdDown?: boolean, smDown?: boolean, languageCol
     p: '2px 7px',
     borderRadius: '2em',
     textTransform: 'capitalize',
-    border: '1px solid #25282e',
+    border: `1px solid ${borderColor}`,
   },
 
   descrition: {

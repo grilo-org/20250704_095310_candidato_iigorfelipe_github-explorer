@@ -1,4 +1,5 @@
 import { Theme } from '@mui/material';
+import { borderColor } from '../../themes';
 
 export const sx = (theme: Theme) => ({
   wrapper: {
@@ -7,7 +8,7 @@ export const sx = (theme: Theme) => ({
     justifyContent: 'space-between',
     p: '15px',
     background: theme.palette.background.paper,
-    borderBottom: '1px solid #25282e',
+    borderBottom: `1px solid ${borderColor}`,
   },
 
   logo: {
