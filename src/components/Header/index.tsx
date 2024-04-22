@@ -17,7 +17,6 @@ import { useAppTheme } from '../../contexts/theme';
 import { defaultValues } from '../../contexts/github/context';
 import { useGithub } from '../../contexts/github';
 import GitHubAPI from '../../api';
-import { REPOS_MOCK, USER_MOCK } from '../../mocks';
 
 import { sx } from './styles';
 
@@ -73,24 +72,6 @@ const Header = () => {
     };
   };
 
-  // const fetchUserMock = async (username: string) => {
-  //   setLoad(true)
-  //   USER_MOCK.login = username
-
-  //   setUserInfos({
-  //     user: USER_MOCK,
-  //     repos: REPOS_MOCK,
-  //     stars: REPOS_MOCK,
-  //   });
-
-  //   setSearchParams((prevState) => {
-  //     const newState = new URLSearchParams(prevState);
-  //     newState.set('user', USER_MOCK.login);
-  //     return newState;
-  //   });
-  //   setLoad(false)
-  // };
-
   const onSubmit = async (data: { username: string }) => {
 
     if (data.username.trim() === '') {
@@ -102,14 +83,12 @@ const Header = () => {
     } else {
       clearFeedback();
       fetchUser(data.username);
-      // fetchUserMock(data.username);
     };
   };
 
   useEffect(() => {
     if (defaultValue.length >= 1) {
-      fetchUser(defaultValue);  
-      // fetchUserMock(defaultValue);
+      fetchUser(defaultValue);
     };
   }, []);
 
