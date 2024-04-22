@@ -102,7 +102,7 @@ const Header = () => {
   return (
     <Box sx={styles.wrapper}>
 
-      <Box component='img' sx={styles.logo} src={`./github-${oppositeTheme}.svg`} onClick={backToHomePage} />
+      <Box component='img' sx={styles.logo} src={`github-${oppositeTheme}.svg`} onClick={backToHomePage} />
 
       <form onSubmit={handleSubmit(onSubmit)}>
 

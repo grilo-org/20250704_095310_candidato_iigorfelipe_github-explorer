@@ -28,7 +28,7 @@ const DisplayGrid = () => {
                 <Box
                   component='img'
                   sx={styles.iconRepositories}
-                  src={`./repositories-${oppositeTheme}.svg`}
+                  src={`repositories-${oppositeTheme}.svg`}
                 />
 
                 <Typography
@@ -70,7 +70,7 @@ const DisplayGrid = () => {
                   {
                     repo.stargazers_count > 0 && (
                       <Box sx={styles.detailStar}>
-                        <Box component='img' src={`./star-${oppositeTheme}.svg`} />
+                        <Box component='img' src={`star-${oppositeTheme}.svg`} />
                         <Box sx={styles.spacingLeft}>
                           {repo.stargazers_count}
                         </Box>
@@ -83,7 +83,7 @@ const DisplayGrid = () => {
                       <Box sx={styles.detailFork}>
                         <Box
                           component='img'
-                          src={`./repo-forked-16-${oppositeTheme}.svg`}
+                          src={`repo-forked-16-${oppositeTheme}.svg`}
                         />
 
                         <Box

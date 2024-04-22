@@ -83,7 +83,7 @@ const DisplayList = () => {
                         sx={styles.detailFork}
                         onClick={() => window.open(`https://github.com/microsoft/${repo.name}/fork`)}
                       >
-                        <Box component='img' sx={styles.image} src={`./repo-forked-16-${oppositeTheme}.svg`} />
+                        <Box component='img' sx={styles.image} src={`repo-forked-16-${oppositeTheme}.svg`} />
                         <Typography>{repo.forks}</Typography>
                       </Box>
                     )
@@ -92,7 +92,7 @@ const DisplayList = () => {
                   {
                     repo.stargazers_count > 0 && (
                       <Box sx={styles.detail}>
-                        <Box component='img' sx={styles.image} src={`./star-${oppositeTheme}.svg`} />
+                        <Box component='img' sx={styles.image} src={`star-${oppositeTheme}.svg`} />
                         <Typography>{repo.stargazers_count}</Typography>
                       </Box>
                     )
@@ -101,7 +101,7 @@ const DisplayList = () => {
                   {
                     repo.license && (
                       <Box sx={styles.detail}>
-                        <Box component='img' sx={styles.image} src={`./balance-scale-${oppositeTheme}.svg`} />
+                        <Box component='img' sx={styles.image} src={`balance-scale-${oppositeTheme}.svg`} />
                         <Typography>{repo.license.name}</Typography>
                       </Box>
                     )

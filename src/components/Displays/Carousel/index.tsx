@@ -88,7 +88,7 @@ const CarouselDisplay = () => {
               {
                 repo.stargazers_count > 0 && (
                   <Box sx={styles.detail}>
-                    <Box component='img' sx={styles.image} src={`./star-${oppositeTheme}.svg`} />
+                    <Box component='img' sx={styles.image} src={`star-${oppositeTheme}.svg`} />
                     <Typography>{repo.stargazers_count}</Typography>
                   </Box>
                 )
@@ -97,7 +97,7 @@ const CarouselDisplay = () => {
               {
                 repo.forks > 0 && (
                   <Box sx={styles.detailFork}>
-                    <Box component='img' sx={styles.image} src={`./repo-forked-16-${oppositeTheme}.svg`} />
+                    <Box component='img' sx={styles.image} src={`repo-forked-16-${oppositeTheme}.svg`} />
                     <Typography onClick={() => window.open(`https://github.com/microsoft/${repo.name}/fork`)}>
                       {repo.forks}
                     </Typography>
@@ -108,7 +108,7 @@ const CarouselDisplay = () => {
               {
                 repo.license && (
                   <Box sx={styles.detail}>
-                    <Box component='img' sx={styles.image} src={`./balance-scale-${oppositeTheme}.svg`} />
+                    <Box component='img' sx={styles.image} src={`balance-scale-${oppositeTheme}.svg`} />
                     <Typography>{repo.license.name}</Typography>
                   </Box>
                 )

@@ -45,7 +45,7 @@ const UserInfos = () => {
         <Box
           component='img'
           sx={styles.img}
-          src={`./users-bold-${oppositeTheme}.svg`}
+          src={`users-bold-${oppositeTheme}.svg`}
         />
 
         <Box
@@ -79,7 +79,7 @@ const UserInfos = () => {
               <Box
                 component='img'
                 sx={styles.img}
-                src={`./building-${oppositeTheme}.svg`}
+                src={`building-${oppositeTheme}.svg`}
               />
 
               <Typography>{user.company}</Typography>
@@ -93,7 +93,7 @@ const UserInfos = () => {
               <Box
                 component='img'
                 sx={styles.img}
-                src={`./map-pin-${oppositeTheme}.svg`}
+                src={`map-pin-${oppositeTheme}.svg`}
               />
 
               <Typography>{user.location}</Typography>
@@ -107,7 +107,7 @@ const UserInfos = () => {
               <Box
                 component='img'
                 sx={styles.img}
-                src={`./email-${oppositeTheme}.svg`}
+                src={`email-${oppositeTheme}.svg`}
               />
 
               <Typography sx={styles.links}>{user.email}</Typography>
@@ -121,7 +121,7 @@ const UserInfos = () => {
               <Box
                 component='img'
                 sx={styles.img}
-                src={`./link-${oppositeTheme}.svg`}
+                src={`link-${oppositeTheme}.svg`}
               />
 
               <Typography
@@ -140,7 +140,7 @@ const UserInfos = () => {
               <Box
                 component='img'
                 sx={styles.img}
-                src={`./x-${oppositeTheme}.svg`}
+                src={`x-${oppositeTheme}.svg`}
               />
 
               <Typography

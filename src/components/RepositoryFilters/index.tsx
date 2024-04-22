@@ -72,7 +72,7 @@ const RepositoryFilters = () => {
 
           <Box sx={styles.boxIcons}>
 
-            <Box component='img' src={`./repositories-${oppositeTheme}.svg`} />
+            <Box component='img' src={`repositories-${oppositeTheme}.svg`} />
 
             <Typography sx={styles.lenght}>{repos.length}</Typography>
 
@@ -82,7 +82,7 @@ const RepositoryFilters = () => {
 
           <Box sx={styles.boxIcons}>
 
-            <Box component='img' sx={styles.starIcon} src={`./star-${oppositeTheme}.svg`} />
+            <Box component='img' sx={styles.starIcon} src={`star-${oppositeTheme}.svg`} />
 
             <Typography sx={styles.lenght}>{stars.length}</Typography>
 
