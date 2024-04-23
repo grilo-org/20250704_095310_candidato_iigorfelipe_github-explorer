@@ -67,9 +67,9 @@ export const sx = (theme: Theme, mdDown?: boolean, smDown?: boolean, languageCol
   circle: {
     width: '12px',
     height: '12px',
-    border: `1px solid ${languageColor}`,
+    border: `1px solid ${languageColor || theme.palette.primary.main}`,
     borderRadius: '50%',
-    backgroundColor: languageColor,
+    backgroundColor: languageColor || theme.palette.primary.main,
     mr: '5px',
   },
 

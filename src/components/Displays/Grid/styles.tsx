@@ -21,6 +21,9 @@ export const sx = (theme: Theme, languageColor?: string) => ({
     p: '16px',
     border: `1px solid ${borderColor}`,
     borderRadius: '5px',
+    display: 'flex',
+    flexDirection: "column",
+    justifyContent: 'space-between'
   },
   
   listItemContent: {
@@ -55,8 +58,6 @@ export const sx = (theme: Theme, languageColor?: string) => ({
   },
   
   descrition: {
-    height: '36px',
-    m: '8px 0px 0px',
     fontSize: '12px',
     overflow: 'hidden',
     textOverflow: 'ellipsis',
@@ -66,7 +67,6 @@ export const sx = (theme: Theme, languageColor?: string) => ({
   details: {
     width: '406px',
     height: '18px',
-    m: '8px 0px 0px',
     fontSize: '12px',
     display: 'flex',
     alignItems: 'center',
@@ -97,9 +97,9 @@ export const sx = (theme: Theme, languageColor?: string) => ({
   language: {
     width: '12px',
     height: '12px',
-    border: `1px solid ${languageColor}`,
+    border: `1px solid ${languageColor || theme.palette.primary.main}`,
     borderRadius: '50%',
-    backgroundColor: languageColor,
+    backgroundColor: languageColor || theme.palette.primary.main,
   },
   
   spacingLeft: {
